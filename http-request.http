@@ -1,0 +1,19 @@
+###
+POST http://localhost:8080/first/test3
+Content-Type: application/json
+
+{
+  "p1": 100
+}
+
+
+###
+POST http://localhost:8080/first/test4
+Content-Type: application/json
+
+{
+  "arg1": "hello",
+  "arg2": 100,
+  "arg3": true
+}
+
