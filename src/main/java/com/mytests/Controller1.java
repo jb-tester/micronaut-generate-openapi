@@ -13,7 +13,9 @@ import io.micronaut.http.annotation.Get;
 @Controller("/first")
 public class Controller1 {
 
+
     /**
+     * getTest1 method
      * @param pv1 some pathvar
      * @return dummy test1 output
      */
