@@ -6,9 +6,9 @@ import io.swagger.v3.oas.annotations.info.*;
 
 @OpenAPIDefinition(
         info = @Info(
-                title = "Micronaut OpenAPI Generation Test",
-                version = "1.0.0",
-                description = "my dummy API ",
+                title = "${api.title}",
+                version = "${api.version}",
+                description = "${openapi.description}",
                 contact = @Contact(url = "https://ip-server.com", name = "irina", email = "irina.petrovskaya@jetbrains.com")
         )
 )

@@ -65,6 +65,8 @@ paths:
 ```
 - the existing `@OpenAPIDefinition` attributes are not considered on generating OpenAPI
 
+- property placeholders in swagger annotations are not resolved, properties are shown as not used
+  (same as for spring?)
 
 
 ## 
