@@ -200,7 +200,8 @@ http://localhost:8080/swagger/micronaut-openapi-generation-test-1.0.0.yml
                        type: string
  
 ```
-8. [ ] Impossible to generate draft for the controller class if the @Controller annotation has no #uri
+8. [x] Impossible to generate draft for the controller class if the @Controller annotation has no #uri
+   https://youtrack.jetbrains.com/issue/IDEA-334314
 ```java
 @Controller   // no inlay == no action to generate the OpenAPI draft
 public class MyController {
@@ -216,7 +217,8 @@ public class MyController {
     }
 }   
 ```
-9. [ ] No draft for endpoints inherited from not annotated parent
+9. [x] No draft for endpoints inherited from not annotated parent
+   https://youtrack.jetbrains.com/issue/IDEA-334315
 
 ```java
 public interface ParentMappings {
@@ -251,6 +253,8 @@ public class ChildMappingController extends BaseMapping {
 }
 ```
 10. Swagger: @ApiResponse is not processed
+
+https://youtrack.jetbrains.com/issue/IDEA-334321
 ```java
     @ApiResponse(content = @Content(mediaType = "application/json", schema = @Schema(type="string")))
     @ApiResponse(responseCode = "400", description = "YOU ARE WRONG")
@@ -293,8 +297,9 @@ public class ChildMappingController extends BaseMapping {
                        schema:
                           type: string
 ```
-11. [ ] the default response content mediatype should be application/json, not '*/*'
+11. [x] the default response content mediatype should be application/json, not '*/*'
 
+https://youtrack.jetbrains.com/issue/IDEA-334316
 if no values are provided explicitly, the default mediatype for both request and response should be
 `application/json`. Actually the generated response content mediatype is `'*/*'`
 
@@ -328,8 +333,8 @@ required:
                 items:
                   type: string
 ```
-12. [ ] Swagger: if @Operation is present but no #operationId is specified for it, generated operationId is empty
-
+12. [x] Swagger: if @Operation is present but no #operationId is specified for it, generated operationId is empty
+    https://youtrack.jetbrains.com/issue/IDEA-334320
 ```java
     @Get(uri="/test1")
     @Operation(summary = "SUPER OPERATION SUMMARY",  // ok
@@ -357,7 +362,8 @@ expected:
       operationId: noOpIdTest
 
 ```
-13. [ ] Swagger: @Parameter#required, #name are ignored
+13. [x] Swagger: @Parameter#required, #name are ignored
+    https://youtrack.jetbrains.com/issue/IDEA-334318
 
 ```java
    // @Parameter#name and #required attributes are ignored; description - ok
@@ -394,7 +400,8 @@ expected:
         schema:
           type: string
 ```
-14. [ ] Swagger: @Parameter#hidden attribute should be considered
+14. [x] Swagger: @Parameter#hidden attribute should be considered
+    https://youtrack.jetbrains.com/issue/IDEA-334317
 
 @Operation#hidden is considered, and the endpoint with hidden == true is not included to draft. However the hidden parameters are still shown
 
@@ -405,23 +412,15 @@ expected:
         return arg;
     }
 ```
-TODO: validation tags, Micronaut @OpenAPI annotations
 
-YouTrack template link: https://youtrack.jetbrains.com/newIssue?project=IDEA&summary=Micronaut%3A+Generate+OpenAPI+Draft%3A&description=233.9470%0A%0A%0Aexample+code%3A%0A%0A%60%60%60%0A%60%60%60%0Agenerated+result%3A%0A%0A%60%60%60%0A%60%60%60%0A%0Aexpected+result%3A%0A%0A%60%60%60%0A%60%60%60%0A&c=relates+to+IDEA-330735&c=add+Board+Platform+UI&c=Subsystem+Frameworks.+Micronaut&c=Assignee+zhanna.gorelova&c=Tester+irina
 
-## 
+# TODO: validation tags, Micronaut @OpenAPI annotations
+
+## YouTrack template link: https://youtrack.jetbrains.com/newIssue?project=IDEA&summary=Micronaut%3A+Generate+OpenAPI+Draft%3A&description=233.9470%0A%0A%0Aexample+code%3A%0A%0A%60%60%60%0A%60%60%60%0Agenerated+result%3A%0A%0A%60%60%60%0A%60%60%60%0A%0Aexpected+result%3A%0A%0A%60%60%60%0A%60%60%60%0A&c=relates+to+IDEA-330735&c=add+Board+Platform+UI&c=Subsystem+Frameworks.+Micronaut&c=Assignee+zhanna.gorelova&c=Tester+irina
+
+## Docs:
 - [Micronaut OpenAPI Support documentation](https://micronaut-projects.github.io/micronaut-openapi/latest/guide/index.html)
 
 - [https://www.openapis.org](https://www.openapis.org)
-
-## Feature micronaut-aot documentation
-
-- [Micronaut AOT documentation](https://micronaut-projects.github.io/micronaut-aot/latest/guide/)
-
-
-
-## Feature serialization-jackson documentation
-
-- [Micronaut Serialization Jackson Core documentation](https://micronaut-projects.github.io/micronaut-serialization/latest/guide/)
 
 

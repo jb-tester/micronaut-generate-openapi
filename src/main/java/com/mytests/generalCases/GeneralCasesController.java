@@ -8,7 +8,7 @@ import io.micronaut.http.annotation.Post;
 
 import java.util.List;
 
-@Controller
+@Controller  // no inlay - can't generate the class-level graph: https://youtrack.jetbrains.com/issue/IDEA-334314
 public class GeneralCasesController {
 
     // mapping method javadoc is not considered:
@@ -35,7 +35,7 @@ public class GeneralCasesController {
         return List.of(mybody);
     }
 
-    // defaults: generated response content type is '*/*', should be application/json
+    // defaults: generated response content type is '*/*', should be application/json; https://youtrack.jetbrains.com/issue/IDEA-334316
     @Post("/test4")
     public List<String> test4(@Body String[] mybody){
         return List.of(mybody);

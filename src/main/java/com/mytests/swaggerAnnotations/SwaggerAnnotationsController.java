@@ -23,6 +23,7 @@ public class SwaggerAnnotationsController {
         return "";
     }
 
+    // empty OperationId is generated: https://youtrack.jetbrains.com/issue/IDEA-334320
     @Get(uri="/test1")
     @Operation(summary = "SUPER OPERATION SUMMARY",  // ok
             description = "SUPER OPERATION DESCRIPTION" // ok
@@ -31,7 +32,7 @@ public class SwaggerAnnotationsController {
         return "";
     }
 
-    // all are ignored:
+    // all are ignored: https://youtrack.jetbrains.com/issue/IDEA-334321
     @ApiResponse(
             content = @Content(mediaType = "application/json",
                     schema = @Schema(type="string"))
@@ -43,7 +44,7 @@ public class SwaggerAnnotationsController {
         return "";
     }
 
-    // @Parameter#name and #required attributes are ignored; description - ok
+    // @Parameter#name and #required attributes are ignored; description - ok; https://youtrack.jetbrains.com/issue/IDEA-334318
     @Get(uri= "/test3/{arg}")
     public String parameterTest(@Parameter(description="NAME PARAMETER DESCRIPTION", name = "MYNAME", required = false) String arg) {
         return arg;
@@ -55,7 +56,7 @@ public class SwaggerAnnotationsController {
         return "";
     }
 
-    // parameter is not hidden but should be
+    // parameter is not hidden but should be; https://youtrack.jetbrains.com/issue/IDEA-334317
     @Get(uri= "/test4/{arg}")
     public String hiddenParameter(@Parameter(hidden = true) String arg) {
         return arg;
