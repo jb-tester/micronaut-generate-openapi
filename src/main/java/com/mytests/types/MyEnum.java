@@ -1,4 +1,4 @@
-package com.mytests;
+package com.mytests.types;
 
 /**
  some dummy enum

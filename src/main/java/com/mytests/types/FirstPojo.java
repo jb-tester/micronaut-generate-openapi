@@ -1,4 +1,4 @@
-package com.mytests;
+package com.mytests.types;
 
 import java.util.List;
 import java.util.Map;

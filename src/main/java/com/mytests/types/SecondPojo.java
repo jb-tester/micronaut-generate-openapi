@@ -1,4 +1,4 @@
-package com.mytests;
+package com.mytests.types;
 
 import io.micronaut.core.annotation.Introspected;
 import io.micronaut.serde.annotation.Serdeable;

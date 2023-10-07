@@ -1,9 +1,9 @@
-package com.mytests;
+package com.mytests.generalCases;
 
-import io.micronaut.http.MediaType;
+import com.mytests.types.FirstPojo;
+import com.mytests.types.MyEnum;
 import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;
-import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Post;
 
 import java.util.List;
@@ -15,19 +15,8 @@ import java.util.List;
  * *
  */
 @Controller("/first")
-public class Controller1 {
+public class PostBodyParametersTestController {
 
-    // mapping method javadoc is not considered:
-    //   https://youtrack.jetbrains.com/issue/IDEA-334234
-    /**
-     * getTest1 method
-     * @param pv1 some pathvar
-     * @return dummy test1 output
-     */
-    @Get(uri = "/test1/{pv1}", produces = MediaType.TEXT_PLAIN)
-    public String test1(String pv1) {
-        return "test1";
-    }
 
     // single parameter in the POST methods is not processed as request body if the explicit @Body annotation is not provided
     //   https://youtrack.jetbrains.com/issue/IDEA-334227
@@ -51,5 +40,16 @@ public class Controller1 {
     @Post("/test4")
     public String post4(String arg1, int arg2, boolean arg3){
         return arg1+" "+arg2+" "+arg3;
+    }
+
+    // more body types - ok
+
+    @Post("/test5")
+    public String post5(@Body MyEnum arg){
+        return arg.name();
+    }
+    @Post("/test6")
+    public String post6(@Body Boolean arg){
+        return arg.toString();
     }
 }
