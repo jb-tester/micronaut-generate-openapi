@@ -64,9 +64,9 @@ http://localhost:8080/swagger/micronaut-openapi-generation-test-1.0.0.yml
                  schema:
                    type: string
    ```
-2. The existing `@OpenAPIDefinition` attributes are not considered on generating OpenAPI
+2. [ ] The existing `@OpenAPIDefinition` attributes are not considered on generating OpenAPI
 
-3. property placeholders in swagger annotations are not resolved, properties are shown as not used
+3. [ ] property placeholders in swagger annotations are not resolved, properties are shown as not used
   (same as for spring?)
     https://youtrack.jetbrains.com/issue/IDEA-283036
     https://youtrack.jetbrains.com/issue/IDEA-282795
@@ -199,9 +199,9 @@ http://localhost:8080/swagger/micronaut-openapi-generation-test-1.0.0.yml
                     schema:
                        type: string
  
-```
+  ```
 8. [x] Impossible to generate draft for the controller class if the @Controller annotation has no #uri
-   https://youtrack.jetbrains.com/issue/IDEA-334314
+  https://youtrack.jetbrains.com/issue/IDEA-334314
 ```java
 @Controller   // no inlay == no action to generate the OpenAPI draft
 public class MyController {
@@ -252,7 +252,7 @@ public class ChildMappingController extends BaseMapping {
    }
 }
 ```
-10. Swagger: @ApiResponse is not processed
+10. [x] Swagger: @ApiResponse is not processed
 
 https://youtrack.jetbrains.com/issue/IDEA-334321
 ```java

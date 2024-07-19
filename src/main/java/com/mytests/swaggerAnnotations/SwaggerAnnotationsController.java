@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @Controller("/swagger")
@@ -41,6 +42,27 @@ public class SwaggerAnnotationsController {
     @ApiResponse(responseCode = "404", description = "NOTHING FOUND")
     @Get("/test2")
     public String apiResponseTest(){
+        return "";
+    }
+
+    // works this way:
+    @ApiResponses( {
+    @ApiResponse(content = @Content(mediaType = "application/json", schema = @Schema(type="string"))),
+    @ApiResponse(responseCode = "400", description = "YOU ARE WRONG AGAIN"),
+    @ApiResponse(responseCode = "404", description = "NOTHING FOUND AGAIN")})
+    @Get("/test21")
+    public String apiResponsesTest(){
+        return "";
+    }
+
+
+    // doesn't work
+    @Operation(description = "check aopResponse as @Operation#responses", responses = {
+            @ApiResponse(responseCode = "200", description = "i'm fine"),
+            @ApiResponse(responseCode = "404", description = "oops"),
+    })
+    @Get("/test22")
+    public String apiResponseInOperationTest(){
         return "";
     }
 
