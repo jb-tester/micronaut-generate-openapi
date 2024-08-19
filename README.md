@@ -414,6 +414,9 @@ expected:
 ```
 
 
+15. @ApiResponse processing: repeatable @ApiResponse annotations are not processed
+https://youtrack.jetbrains.com/issue/IDEA-356591
+
 # TODO: validation tags, Micronaut @OpenAPI annotations
 
 ## YouTrack template link: https://youtrack.jetbrains.com/newIssue?project=IDEA&summary=Micronaut%3A+Generate+OpenAPI+Draft%3A&description=233.9470%0A%0A%0Aexample+code%3A%0A%0A%60%60%60%0A%60%60%60%0Agenerated+result%3A%0A%0A%60%60%60%0A%60%60%60%0A%0Aexpected+result%3A%0A%0A%60%60%60%0A%60%60%60%0A&c=relates+to+IDEA-330735&c=add+Board+Platform+UI&c=Subsystem+Frameworks.+Micronaut&c=Assignee+zhanna.gorelova&c=Tester+irina

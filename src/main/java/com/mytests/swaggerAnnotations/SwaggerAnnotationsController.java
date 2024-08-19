@@ -24,6 +24,8 @@ public class SwaggerAnnotationsController {
         return "";
     }
 
+
+
     // empty OperationId is generated: https://youtrack.jetbrains.com/issue/IDEA-334320
     @Get(uri="/test1")
     @Operation(summary = "SUPER OPERATION SUMMARY",  // ok
@@ -33,8 +35,10 @@ public class SwaggerAnnotationsController {
         return "";
     }
 
-    // all are ignored: https://youtrack.jetbrains.com/issue/IDEA-334321
+    // all are ignored: https://youtrack.jetbrains.com/issue/IDEA-334321 - fixed:
+    // actually all except first are ignored
     @ApiResponse(
+            responseCode = "200", description = "FINE",
             content = @Content(mediaType = "application/json",
                     schema = @Schema(type="string"))
     )
@@ -47,7 +51,7 @@ public class SwaggerAnnotationsController {
 
     // works this way:
     @ApiResponses( {
-    @ApiResponse(content = @Content(mediaType = "application/json", schema = @Schema(type="string"))),
+    @ApiResponse(responseCode = "200", description = "FINE", content = @Content(mediaType = "application/json", schema = @Schema(type="string"))),
     @ApiResponse(responseCode = "400", description = "YOU ARE WRONG AGAIN"),
     @ApiResponse(responseCode = "404", description = "NOTHING FOUND AGAIN")})
     @Get("/test21")
@@ -81,6 +85,7 @@ public class SwaggerAnnotationsController {
     // parameter is not hidden but should be; https://youtrack.jetbrains.com/issue/IDEA-334317
     @Get(uri= "/test4/{arg}")
     public String hiddenParameter(@Parameter(hidden = true) String arg) {
+
         return arg;
     }
 }
