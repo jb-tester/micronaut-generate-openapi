@@ -2,7 +2,7 @@
 - run as maven goal
 - check the target/classes/META-INF/swagger/micronaut-openapi-generation-test-1.0.0.yml
 - or open
-http://localhost:8080/swagger/micronaut-openapi-generation-test-1.0.0.yml
+  http://localhost:8080/swagger/micronaut-openapi-generation-test-1.1.1.yml
 
 
 **Problems:**
